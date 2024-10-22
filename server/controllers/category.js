@@ -1,4 +1,4 @@
-const { GiLetterBomb } = require("react-icons/gi")
+
 const categoryModel = require("../models/category")
 
 exports.createCategory = async (req, res) => {
