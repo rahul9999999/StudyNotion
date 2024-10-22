@@ -21,6 +21,10 @@ const cors = require("cors");
 require("dotenv").config()
 const PORT=process.env.PORT || 5000
 
+const whitelist = process.env.CORS_ORIGIN
+  ? JSON.parse(process.env.CORS_ORIGIN)
+  : ["*"];
+
 
 app.use(express.json())
 app.use(cookieParser())
@@ -30,7 +34,7 @@ app.use(fileUpload({
 }))
 app.use(
     cors({
-      origin: JSON.parse(process.env.CORS_ORIGIN),
+      origin: whitelist,
       credentials: true,
       maxAge: 14400,
     })
